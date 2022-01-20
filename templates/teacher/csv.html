@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Attendance System</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+		integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/others/styles.css') }}">
+	<style>
+		#t1 {
+			opacity: 0.5;
+			pointer-events: none;
+			transition: 1s all linear;
+		}
+		#t2{
+			display: none;
+			transition: 1s all linear;
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-secondary navbar-inverse">
+		<a class="navbar-brand" href="#">Online Attendance</a>
+		<div class="container-fluid">
+			<a href="teacherhome.html" class="nav-link text-light">Back</a>
+			<a href="/logout" class="nav-link text-light">Logout</a>
+		</div>
+	</nav>
+
+	<div class="jumbotron text-center">
+		<div class="container">
+			<h1>Dowload Attendance</h1> <br>
+			<!-- <a class="btn btn-dark btn-lg" href="{{ url_for('dowload_file') }}">Dowload</a> -->
+			<a id="t1" class="btn btn-dark btn-lg" href="{{ url_for('dowload_file') }}">Dowload</a>
+		</div>
+		<br><br><br>
+		<h3 id="t2">Attendence has been generated</h3>
+	</div>
+
+	<script>
+		myFunction()
+		function myFunction() {
+			setTimeout(function () {
+				document.getElementById("t1").style.pointerEvents = "all";				
+				document.getElementById("t1").style.opacity = "1";				
+				document.getElementById("t2").style.display = "block";			
+			}, 2000);
+		}
+	</script>
+</body>
+
+</html>
